@@ -8,5 +8,7 @@ edition = "2021"
 [dependencies]
 binrw = "0.13.3"
 hex-literal = "0.4.1"
+morton-encoding = "2.0.1"
 sha1 = "0.10.6"
+soft-aes = "0.2.2"
 thiserror = "1.0.58"
