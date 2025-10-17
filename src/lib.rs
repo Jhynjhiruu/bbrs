@@ -18,6 +18,7 @@ pub type BbId = u32;
 pub type BbContentId = u32;
 pub type BbServerName = [u8; 64];
 pub type BbRsaSig2048 = [u8; 256];
+pub type BbTicketId = u16;
 
 pub const BLOCK_SIZE: usize = 16 * 1024;
 
@@ -47,6 +48,12 @@ hash_hex!(
     BbEccPublicKey,
     BbRsaSig2048
 );
+
+impl HashHex for u32 {
+    fn to_hex(&self) -> String {
+        format!("{self:08X}")
+    }
+}
 
 #[binrw]
 #[derive(Debug)]
