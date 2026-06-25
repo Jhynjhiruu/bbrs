@@ -17,7 +17,10 @@ pub type BbEccPublicKey = [u8; 64];
 pub type BbId = u32;
 pub type BbContentId = u32;
 pub type BbServerName = [u8; 64];
+pub type BbRsaPublicKey2048 = [u8; 256];
+pub type BbRsaPublicKey4096 = [u8; 512];
 pub type BbRsaSig2048 = [u8; 256];
+pub type BbRsaSig4096 = [u8; 512];
 pub type BbTicketId = u16;
 
 pub const BLOCK_SIZE: usize = 16 * 1024;
@@ -46,7 +49,8 @@ hash_hex!(
     BbAesKey,
     BbEccPrivateKey,
     BbEccPublicKey,
-    BbRsaSig2048
+    BbRsaPublicKey2048,
+    BbRsaPublicKey4096
 );
 
 impl HashHex for u32 {
@@ -121,7 +125,7 @@ impl Virage2 {
 
 #[derive(Debug, Error)]
 pub enum BootromError {
-    #[error("Invalid bootrom SHA-1 hash (got {0}, expected {})", BOOTROM_HASH.to_hex())]
+    #[error("Invalid bootrom SHA-1 hash (got {0}, expected {exp})", exp = BOOTROM_HASH.to_hex())]
     InvalidHash(String),
 }
 
