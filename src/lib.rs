@@ -22,6 +22,7 @@ pub type BbRsaPublicKey4096 = [u8; 512];
 pub type BbRsaSig2048 = [u8; 256];
 pub type BbRsaSig4096 = [u8; 512];
 pub type BbRsaExponent = u32;
+pub type BbEccSig = [u8; 64];
 pub type BbTicketId = u16;
 
 pub const BLOCK_SIZE: usize = 16 * 1024;
